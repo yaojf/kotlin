@@ -1,0 +1,11 @@
+
+spring:
+  application:
+    name: kotlin
+  data:
+    mongodb:
+      host: ${MONGO_HOST:localhost}
+      port: ${MONGO_PORT:27017}
+      database: ${MONGO_DATABASE:dalaran}
+server:
+  port: 8083
