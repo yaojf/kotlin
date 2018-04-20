@@ -1,9 +1,9 @@
 package com.yaojiafeng.kotlin
 
-import com.yaojiafeng.kotlin.mongo.PointRepository
-import com.yaojiafeng.kotlin.mongo.Point
 import org.springframework.boot.SpringApplication
 import org.springframework.boot.autoconfigure.SpringBootApplication
+import org.springframework.web.bind.annotation.GetMapping
+import org.springframework.web.bind.annotation.RestController
 
 /**
  * Created with IntelliJ IDEA.
@@ -15,13 +15,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication
  */
 
 @SpringBootApplication(scanBasePackages = ["com.yaojiafeng.kotlin"])
+@RestController
 open class App
 
 fun main(args: Array<String>) {
-    val context = SpringApplication(App::class.java).run(*args)
-    val mongo = context.getBean("pointRepository", PointRepository::class) as PointRepository
-//    mongo.save(Point(1,1))
-
-    val list = mongo.findByX(1)
-    val list2 = mongo.findByX(1,true)
+    SpringApplication(App::class.java).run(*args)
 }
