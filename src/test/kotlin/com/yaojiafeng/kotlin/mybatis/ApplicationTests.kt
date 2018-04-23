@@ -3,7 +3,9 @@ package com.yaojiafeng.kotlin.mybatis
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.slf4j.LoggerFactory
+import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.context.SpringBootTest
+import org.springframework.jdbc.core.JdbcTemplate
 import org.springframework.test.context.junit4.SpringRunner
 import javax.annotation.Resource
 
@@ -33,4 +35,14 @@ class ApplicationTests {
 
     }
 
+    @Autowired
+    private val jdbcTemplate: JdbcTemplate? = null
+
+
+    @Test
+    fun `jdbc test"`() {
+
+        val count = jdbcTemplate!!.queryForObject("select count(1) from USER", Int::class.java)
+        log.info("count:" + count.toString())
+    }
 }
