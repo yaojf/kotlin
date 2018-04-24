@@ -3,9 +3,9 @@ spring:
     name: kotlin
   data:
     mongodb:
-      host: ${MONGO_HOST:localhost}
-      port: ${MONGO_PORT:27017}
-      database: ${MONGO_DATABASE:dalaran}
+      host: localhost
+      port: 27017
+      database: test
   datasource:
       url: jdbc:mysql://localhost:3306/test
       username: root

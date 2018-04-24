@@ -11,10 +11,8 @@ import org.springframework.data.mongodb.repository.Query
  * To change this template use File | Settings | File Templates.
  * Description:
  */
-interface PointRepository : MongoRepository<Point, String> {
+interface UserRepository : MongoRepository<User, String> {
 
-    fun findByX(x: Int, all: Boolean): MutableList<Point>
+    fun findByUsername(username: String): User
 
-    @Query(fields = "{'x':1}")
-    fun findByX(x: Int): MutableList<Point>
 }
