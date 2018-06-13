@@ -3,6 +3,7 @@ package com.yaojiafeng.kotlin
 import org.springframework.boot.SpringApplication
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.data.mongodb.config.EnableMongoAuditing
+import org.springframework.session.data.redis.config.annotation.web.http.EnableRedisHttpSession
 
 /**
  * Created with IntelliJ IDEA.
@@ -15,6 +16,7 @@ import org.springframework.data.mongodb.config.EnableMongoAuditing
 
 @SpringBootApplication(scanBasePackages = ["com.yaojiafeng.kotlin"])
 @EnableMongoAuditing//用于LastModifiedDate注解解释
+@EnableRedisHttpSession
 open class App
 
 
