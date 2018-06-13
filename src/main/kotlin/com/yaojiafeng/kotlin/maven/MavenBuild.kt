@@ -23,7 +23,7 @@ private class MavenOutputHandler : InvocationOutputHandler {
 fun main(args: Array<String>) {
     val request = DefaultInvocationRequest()
     request.baseDirectory = File("/Users/sierra/IdeaProjects/kotlin/abcd3179463213420977935")
-    request.userSettingsFile = File("/Users/sierra/.m2/settings.xml")
+    request.userSettingsFile = File("/Users/yaojiafeng/.m2/settings.xml")
     request.goals = listOf("clean", "package")
     request.mavenOpts = "-Djar.finalName=app -Dfile.encoding=UTF8"
 

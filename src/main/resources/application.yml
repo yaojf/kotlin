@@ -6,12 +6,10 @@ spring:
       host: localhost
       port: 27017
       database: test
-    elasticsearch:
-      cluster-name: elasticsearch_yaojiafeng
   datasource:
       url: jdbc:mysql://localhost:3306/test
       username: root
-      password:
+      password: root
       driver-class-name: com.mysql.jdbc.Driver
   redis:
       database: 0

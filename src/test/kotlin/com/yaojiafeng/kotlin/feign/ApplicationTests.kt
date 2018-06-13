@@ -1,10 +1,8 @@
 package com.yaojiafeng.kotlin.feign
 
-import com.netflix.config.ConfigurationManager
 import feign.Feign
-import feign.jackson.JacksonDecoder
-import feign.jackson.JacksonEncoder
-import feign.ribbon.RibbonClient
+import feign.gson.GsonDecoder
+import feign.gson.GsonEncoder
 import org.junit.Test
 
 /**
@@ -17,20 +15,15 @@ class ApplicationTests {
 
     @Test
     fun test() {
-        ConfigurationManager.loadPropertiesFromResources("sample-client.properties")
+        val github = Feign.builder()
+                .decoder(GsonDecoder())
+                .encoder(GsonEncoder())
+                .target(GitHub::class.java, "https://api.github.com")
 
-        val param = User()
-        param.username = "scott"
-
-        val service = Feign.builder().client(RibbonClient.create()).encoder(JacksonEncoder())
-                .decoder(JacksonDecoder()).target(RemoteService::class.java, "http://sample-client/")
-
-        /**
-         * 调用测试
-         */
-        for (i in 1..10) {
-            val result = service.getOwner(param)
-            println("${result.id},${result.username}")
+        // Fetch and print a list of the contributors to this library.
+        val contributors = github.contributors("OpenFeign", "feign")
+        for (contributor in contributors) {
+            println(contributor.login + " (" + contributor.contributions + ")")
         }
     }
 }
